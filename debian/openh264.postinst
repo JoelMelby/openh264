@@ -11,13 +11,13 @@ set -o errexit -o nounset
 # Download URL:
 # http://ciscobinary.openh264.org/libopenh264-1.5.0-linux64.so.bz2
 
-OPENH264_VERSION="1.5.0"
+OPENH264_VERSION="2.1.1"
 BZ2_HASH="e8ec92b92d5e84acbda28fcaceba128a1306f3e3abe1b74e35ae7e986c452b98"
 
-BZ2_FILE="libopenh264-${OPENH264_VERSION}-linux64.so.bz2"
+BZ2_FILE="libopenh264-${OPENH264_VERSION}-linux-arm64.6.so.bz2"
 BZ2_URL="http://ciscobinary.openh264.org/${BZ2_FILE}"
 
-INSTALL_DIR="/usr/lib/x86_64-linux-gnu"
+INSTALL_DIR="/usr/lib/aarch64-linux-gnu"
 
 echo "+ Installing this package implies acceptance of the following license:"
 
