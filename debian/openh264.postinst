@@ -94,9 +94,9 @@ echo "+ Download OpenH264 library from Cisco server"
 [ -f "$BZ2_FILE" ] && rm "$BZ2_FILE"
 wget -O "$BZ2_FILE" "$BZ2_URL"
 
-[ -f "$BZ2_SIG_FILE" ] && rm "$BZ2_SIG_FILE"
-wget -O "$BZ2_SIG_FILE" "$BZ2_SIG_URL"
-bunzip2 "$BZ2_SIG_FILE"
+#[ -f "$BZ2_SIG_FILE" ] && rm "$BZ2_SIG_FILE"
+#wget -O "$BZ2_SIG_FILE" "$BZ2_SIG_URL"
+#bunzip2 "$BZ2_SIG_FILE"
 
 echo "+ skipping: Verify file checksum"
 
