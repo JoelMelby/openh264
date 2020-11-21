@@ -11,13 +11,10 @@ set -o errexit -o nounset
 # Download URL:
 # http://ciscobinary.openh264.org/libopenh264-1.5.0-linux64.so.bz2
 
-OPENH264_VERSION="2.1.1"
+OPENH264_VERSION="1.5.0"
 # BZ2_HASH="e8ec92b92d5e84acbda28fcaceba128a1306f3e3abe1b74e35ae7e986c452b98"
 
-BZ2_FILE="libopenh264-${OPENH264_VERSION}-linux-arm64.6.so.bz2"
-BZ2_URL="http://ciscobinary.openh264.org/${BZ2_FILE}"
-BZ2_SIG_FILE="libopenh264-${OPENH264_VERSION}-linux-arm64.6.so.sig.bz2"
-BZ2_SIG_URL="http://ciscobinary.openh264.org/${BZ2_SIG_FILE}"
+BZ2_FILE="../libopenh264-${OPENH264_VERSION}-aarch64.so.bz2"
 
 INSTALL_DIR="/usr/lib/aarch64-linux-gnu"
 
@@ -89,29 +86,13 @@ echo "+ Wait 3 seconds before continuing"
 
 sleep 3
 
-echo "+ Download OpenH264 library from Cisco server"
-
-[ -f "$BZ2_FILE" ] && rm "$BZ2_FILE"
-wget -O "$BZ2_FILE" "$BZ2_URL"
-
-#[ -f "$BZ2_SIG_FILE" ] && rm "$BZ2_SIG_FILE"
-#wget -O "$BZ2_SIG_FILE" "$BZ2_SIG_URL"
-#bunzip2 "$BZ2_SIG_FILE"
-
-echo "+ skipping: Verify file checksum"
-
-#echo "$BZ2_SIG_FILE  $BZ2_FILE" | gpg --verify >/dev/null 2>&1 || {
-#    echo "ERROR: Checksum mismatch on $BZ2_FILE"
-#    exit 1
-#}
-
 echo "+ Extract and install OpenH264 library"
 
 # `bzip2 --decompress` automatically deletes the input file
 # bzip2 --decompress "$BZ2_FILE" >temp.so
 
 bzcat "$BZ2_FILE" >temp.so
-rm "$BZ2_FILE"
+# rm "$BZ2_FILE"
 
 # LIB_FILE="libopenh264.so.1"
 # LIB_NAME="libopenh264"
